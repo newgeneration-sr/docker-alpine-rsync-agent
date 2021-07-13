@@ -24,7 +24,7 @@ sshpass -p "$NAS_SSH_PASS" ssh -oStrictHostKeyChecking=no -p $NAS_SSH_PORT $NAS_
     exit
 ENDSSH
 
-sshpass -p "$NAS_SSH_PASS" rsync -e "ssh -oStrictHostKeyChecking=no -p $NAS_SSH_PORT" -azP $SOURCE_DATA_PATH $NAS_SSH_USER@$NAS_IP:$REMOTE_DATA_PATH/$DST/current.$(date +"%y%m%d")
+sshpass -p "$NAS_SSH_PASS" rsync -e "ssh -oStrictHostKeyChecking=no -p $NAS_SSH_PORT" -azP $SOURCE $NAS_SSH_USER@$NAS_IP:$REMOTE_DATA_PATH/$DST/current.$(date +"%y%m%d")
 if [ $? == 0 ] 
 then
     echo "Done"
